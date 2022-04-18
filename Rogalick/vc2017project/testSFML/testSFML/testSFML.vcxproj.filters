@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8539272f-9e8e-411b-8946-92a16bb3dfe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mapElements">
+      <UniqueIdentifier>{23f97395-4900-4019-8e8e-150573163c0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\Vector2.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialPoint.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserBeam.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Mob.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimation.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapons.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>src\mapElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
