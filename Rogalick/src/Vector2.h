@@ -68,6 +68,11 @@ struct Vector2
 	{
 		return sqrt((x * other.y) * (x * other.y) + (y * other.x) * (x * other.y));
 	}
+
+	bool operator==(const Vector2& other) const
+	{
+		return (((x - other.x) <= 1.e-6) && ((y - other.y) <= 1.e-6));
+	}
 	
 	Vector2 norm()
 	{
@@ -82,19 +87,19 @@ struct Vector2
 		return len() * len();
 	}
 
-	Vector2 rotate(float fi) 
+	Vector2 rotate(double fi)
 	{
 		Vector2 result;
-		float di = fi * M_PI / 180;
+		double di = fi * M_PI / 180;
 		result.x = x * cos(di) - y * sin(di);
 		result.y = x * sin(di) + y * cos(di);
 		return result;
 	}
 
-	Vector2 getRotated(float fi) 
+	Vector2 getRotated(double fi)
 	{
-		float di = fi * M_PI / 180;
-		float k = x * cos(di) - y * sin(di);
+		double di = fi * M_PI / 180;
+		double k = x * cos(di) - y * sin(di);
 		y = x * sin(di) + y * cos(di);
 		x = k;
 		return *this;

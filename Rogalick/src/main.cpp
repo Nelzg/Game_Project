@@ -36,7 +36,7 @@ int main()
   circle.setFillColor(sf::Color::Black);
   Wall wall(200, 100);
   Ball p(10);
-  
+  int count = 0;
 
   while (window.isOpen())
   {
@@ -49,16 +49,22 @@ int main()
     window.clear(sf::Color::Red);
     sf::Time time_count = clock.getElapsedTime();
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && ((time_count - time_begin_4).asSeconds() >= dt+3)) {
+    if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) == 0) && (sf::Mouse::isButtonPressed(sf::Mouse::Left) == 0) && (count == 1)) {
+        count = 0;
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Mouse::isButtonPressed(sf::Mouse::Left) && (count == 0)) {
         
         time_begin_4 = time_count;
         wall.setWallPosition(Vector2(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y));
+        
         walls.push_back(wall);
+        count = 1;
     }
 
 
 
-    if ((sf::Mouse::isButtonPressed(sf::Mouse::Left)) && ((time_count - time_begin_1).asSeconds() >= dt)) {
+    if ((sf::Mouse::isButtonPressed(sf::Mouse::Left)) && ((time_count - time_begin_1).asSeconds() >= dt) && (sf::Keyboard::isKeyPressed(sf::Keyboard::W) == 0)) {
         p.mass = 1.0f;
         p.radius = 10;
         time_begin_1 = time_count;
@@ -107,32 +113,27 @@ int main()
             if ((screen_width < particles[i].position.x) || (particles[i].position.x < 0) || (particles[i].position.y < 0) || (particles[i].position.y > screen_height)) {
                 particles.erase(particles.begin() + i);
             }
-        }
-
-        for (int i = 0; i < particles.size(); i++) {
             for (int j = 0; j < walls.size(); j++) {
                 Vector2 prev_pos = particles[i].position;
-                if (Collision::collisionWithRect(walls[j].rectangle, particles[i])) {
+                if (Collision::collisionOfBallWithRect(walls[j].rectangle, &(particles[i]))) {
                     particles[i].position = prev_pos;
-                    particles[i].velocity = -particles[i].velocity;
                 }
+                window.draw(walls[j].rectangle);
             }
         }
-
-
         player.animation(clock);
         window.draw(player.body);
     }
-
+    
     for (int i = 0; i < walls.size(); i++) {
         window.draw(walls[i].rectangle);
     }
-    
-    if (walls.size() > 0) {
-        circle.setOrigin(circle.getRadius(), circle.getRadius());
-        circle.setPosition(walls[0].rectangle.getPosition().x, walls[0].rectangle.getPosition().y);
-        window.draw(circle);
-    }
+
+    //if (walls.size() > 0) {
+      //  circle.setOrigin(circle.getRadius(), circle.getRadius());
+       // circle.setPosition(walls[0].rectangle.getPosition().x, walls[0].rectangle.getPosition().y);
+      //  window.draw(circle);
+   // }
 
     window.display();
   }
