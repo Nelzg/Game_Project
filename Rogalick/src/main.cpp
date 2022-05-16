@@ -16,8 +16,10 @@
 int main()
 {
   std::vector<Ball> particles;
+  std::vector<Ball> particles_enemy;
   std::vector<LaserBeam> lasers;
   std::vector <Wall> walls;
+  std::vector<Mob> enemies;
 
   sf::RectangleShape player2;
   int count1;
@@ -29,6 +31,7 @@ int main()
   sf::Time time_begin_2= clock.getElapsedTime();
   sf::Time time_begin_3 = clock.getElapsedTime();
   sf::Time time_begin_4 = clock.getElapsedTime();
+  sf::Time time_begin_enemy = clock.getElapsedTime();
   player.height = 20;
   player.width = 20;
   sf::CircleShape circle;
@@ -37,7 +40,15 @@ int main()
   Wall wall(200, 100);
   Ball p(10);
   int count = 0;
-
+  Mob enemy;
+  enemy.height = 20;
+  enemy.width = 20;
+  enemy.body.setPosition(300, 300);
+  enemy.body.setOrigin(enemy.width / 2, enemy.height / 2);
+  enemy.body.setSize(sf::Vector2f(enemy.width, enemy.height));
+  enemy.texture.loadFromFile("hero_animation/hero_3.png");
+  enemy.body.setTexture(&enemy.texture);
+  enemies.push_back(enemy);
   while (window.isOpen())
   {
 
@@ -94,7 +105,25 @@ int main()
         
         lasers.push_back(l);
     }
-
+    for (int i = 0; i < enemies.size(); i++) {
+        window.draw(enemies[i].body);
+        if ((player.body.getPosition().y <= enemies[i].body.getPosition().y + enemies[i].height) && (player.body.getPosition().y + player.body.getSize().y / 2 >= enemies[i].body.getPosition().y) && ((time_count - time_begin_enemy).asSeconds() >= dt_mob)) {
+            int Right = 1;
+            time_begin_enemy = time_count;
+            for (int j = 0; j < walls.size(); j++) {
+                if ((enemies[i].body.getPosition().y + 20 > walls[j].rectangle.getPosition().y) &&  (enemies[i].body.getPosition().y < walls[j].rectangle.getPosition().y + walls[j].rectangle.getSize().y) && ((enemies[i].body.getPosition().x - player.position.x) * (enemies[i].body.getPosition().x - walls[j].rectangle.getPosition().x) > 0)) {
+                    Right = 0;
+                }
+            }
+            if (Right == 1) {
+                p.mass = 1.0f;
+                p.radius = 10;
+                p.velocity = Vector2(player.body.getPosition().x - enemies[i].body.getPosition().x, 0).norm() * speed;
+                p.position = Vector2(enemies[i].body.getPosition().x, enemies[i].body.getPosition().y);
+                particles_enemy.push_back(p);
+            }
+        }
+    }
     if ((time_count - time_begin_3).asSeconds() >= dt) {
         time_count = time_begin_3;
         for (int i = 0; i < lasers.size(); i++) {
@@ -119,6 +148,28 @@ int main()
                     particles[i].position = prev_pos;
                 }
                 window.draw(walls[j].rectangle);
+            }
+        }
+        for (int i = 0; i < particles_enemy.size(); i++) {
+            particles_enemy[i].UpdatePosition(1);
+            if ((particles_enemy[i].position.x + 2 * particles_enemy[i].radius >= player.position.x) && (particles_enemy[i].position.x <= player.position.x + player.body.getSize().x / 2) && (particles_enemy[i].position.y + 2 * particles_enemy[i].radius >= player.position.y) && (particles_enemy[i].position.y <= player.body.getPosition().y + player.body.getSize().y / 2)) {
+                player.health -= particles_enemy[i].damage;
+                std::cout << player.health << std::endl;
+                particles_enemy.erase(particles_enemy.begin() + i);
+            }
+            else {
+                particles_enemy[i].circle.setPosition(particles_enemy[i].position.x, particles_enemy[i].position.y);
+                window.draw(particles_enemy[i].circle);
+                if ((screen_width < particles_enemy[i].position.x) || (particles_enemy[i].position.x < 0) || (particles_enemy[i].position.y < 0) || (particles_enemy[i].position.y > screen_height)) {
+                    particles_enemy.erase(particles_enemy.begin() + i);
+                }
+                for (int j = 0; j < walls.size(); j++) {
+                    Vector2 prev_pos = particles_enemy[i].position;
+                    if (Collision::collisionOfBallWithRect(walls[j].rectangle, &(particles_enemy[i]))) {
+                        particles_enemy.erase(particles_enemy.begin() + i);
+                    }
+                    window.draw(walls[j].rectangle);
+                }
             }
         }
         player.animation(clock);
