@@ -10,6 +10,7 @@
 
 #define speed 1
 #define dt 0.2f
+#define dt_mob 1.0f
 #define screen_height 1000
 #define screen_width 1000
 
@@ -34,6 +35,7 @@ int main()
   sf::Time time_begin_enemy = clock.getElapsedTime();
   player.height = 20;
   player.width = 20;
+  player.health = 100;
   sf::CircleShape circle;
   circle.setRadius(10);
   circle.setFillColor(sf::Color::Black);
@@ -118,6 +120,7 @@ int main()
             if (Right == 1) {
                 p.mass = 1.0f;
                 p.radius = 10;
+                p.damage = 20;
                 p.velocity = Vector2(player.body.getPosition().x - enemies[i].body.getPosition().x, 0).norm() * speed;
                 p.position = Vector2(enemies[i].body.getPosition().x, enemies[i].body.getPosition().y);
                 particles_enemy.push_back(p);
