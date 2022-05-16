@@ -21,27 +21,27 @@ public:
 		switch (frame_numb) 
 		{
 		case 0: {
-			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_1.png");
+			texture.loadFromFile("hero_animation/hero_1.png");
 			break;
 			}
 		case 1: {
-			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_2.png");
+			texture.loadFromFile("hero_animation/hero_2.png");
 			break;
 		}
 		case 2: {
-			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_3.png");
+			texture.loadFromFile("hero_animation/hero_3.png");
 			break;
 		}
 		case 3: {
-			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_4.png");
+			texture.loadFromFile("hero_animation/hero_4.png");
 			break;
 		}
 		case 4: {
-			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_1.png");
+			texture.loadFromFile("hero_animation/hero_1.png");
 			break;
 		}
 		default:
-			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_1.png");
+			texture.loadFromFile("hero_animation/hero_1.png");
 		}
 		body.setTexture(&texture);
 
