@@ -14,8 +14,12 @@ public:
 		int count = 0;
 		a.getRotated(rect.getRotation());
 		rotation_a = rect.getRotation();
-
-		if (collisionOfBallWithline(pos, pos + Vector2(size.x, 0).rotate(rotation_a), *ball)) {
+		if ((ball->position.x >= rect.getPosition().x) && (ball->position.x <= rect.getPosition().x + rect.getSize().x) && (ball->position.y >= rect.getPosition().y) && (ball->position.y <= rect.getPosition().y + rect.getSize().y)) {
+			return 1;
+		}
+		return 0;
+		
+		/*if (collisionOfBallWithline(pos, pos + Vector2(size.x, 0).rotate(rotation_a), *ball)) {
 			c = Vector2(size.x, 0).rotate(rotation_a + 270).norm();
 			(*ball).velocity = -(*ball).velocity;
 			if ((*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm() == c) {
@@ -97,7 +101,7 @@ public:
 		}
 		else {
 			return 0;
-		}
+		}*/
 	}
 };
 
