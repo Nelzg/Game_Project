@@ -115,8 +115,8 @@ struct Vector2
 		return rotate(180);
 	}
 };
-/*
-const std::ostream& operator<<(std::ostream& stream, const Vector2& other) {
+
+std::ostream& operator<<(std::ostream& stream, const Vector2& other) {
 	stream << other.x << " " << other.y;
 	return stream;
 }
@@ -126,6 +126,6 @@ std::istream& operator>>(std::istream& stream, Vector2& other)
 	stream >> other.x >> other.y;
 	return stream;
 }
-*/
+
 
 

@@ -16,11 +16,14 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Vector2.h" />
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="Collision.h" />
+    <ClInclude Include="Collisions.h" />
     <ClInclude Include="LaserBeam.h" />
+    <ClInclude Include="Lever.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="MaterialPoint.h" />
     <ClInclude Include="Mob.h" />
     <ClInclude Include="PlayerAnimation.h" />
+    <ClInclude Include="Portal.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="Weapons.h" />
   </ItemGroup>

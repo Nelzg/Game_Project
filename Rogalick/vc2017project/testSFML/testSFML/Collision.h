@@ -1,103 +1,41 @@
 #pragma once
-#include <SFML\Graphics.hpp>
-#include "Ball.h"
+#ifndef COLLISION_H
+#define COLLISION_H
 
-class Collision
-{
-public:
-	static bool collisionOfBallWithRect(sf::RectangleShape rect, Ball *ball) {
-		Vector2 pos = Vector2(rect.getPosition().x, rect.getPosition().y);
-		Vector2 a(1, 0), b(1, 0), c;
-		Vector2 size = Vector2(rect.getSize().x, rect.getSize().y);
-		Vector2 prev_pos = (* ball).position;
-		float t1, t2, rotation_a;
-		int count = 0;
-		a.getRotated(rect.getRotation());
-		rotation_a = rect.getRotation();
+namespace Collision {
+    //////
+    /// Test for a collision between two sprites by comparing the alpha values of overlapping pixels
+    /// Supports scaling and rotation
+    /// AlphaLimit: The threshold at which a pixel becomes "solid". If AlphaLimit is 127, a pixel with
+    /// alpha value 128 will cause a collision and a pixel with alpha value 126 will not.
+    ///
+    /// This functions creates bitmasks of the textures of the two sprites by
+    /// downloading the textures from the graphics card to memory -> SLOW!
+    /// You can avoid this by using the "CreateTextureAndBitmask" function
+    //////
+    bool PixelPerfectTest(const sf::Sprite& Object1, const sf::Sprite& Object2, sf::Uint8 AlphaLimit = 0);
 
-		if (collisionOfBallWithline(pos, pos + Vector2(size.x, 0).rotate(rotation_a), *ball)) {
-			c = Vector2(size.x, 0).rotate(rotation_a + 270).norm();
-			(*ball).velocity = -(*ball).velocity;
-			if ((*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm() == c) {
-				(*ball).velocity = (*ball).velocity.rotate(2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			else {
-				(*ball).velocity = (*ball).velocity.rotate((- 2) * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			(*ball).position = prev_pos;
-			count++;
-		}
-			
-		if (collisionOfBallWithline(pos, pos + Vector2(0, size.y).rotate(rotation_a), *ball)) {
-			c = Vector2(0, size.y).rotate(rotation_a + 90).norm();
-			(*ball).velocity = -(*ball).velocity;
-			if ((*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm() == c) {
-				(*ball).velocity = (*ball).velocity.rotate(2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			else {
-				(*ball).velocity = (*ball).velocity.rotate( - 2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			
-			(*ball).position = prev_pos;
-			count++;;
-		}
+    //////
+    /// Replaces Texture::loadFromFile
+    /// Load an imagefile into the given texture and create a bitmask for it
+    /// This is much faster than creating the bitmask for a texture on the first run of "PixelPerfectTest"
+    ///
+    /// The function returns false if the file could not be opened for some reason
+    //////
+    bool CreateTextureAndBitmask(sf::Texture& LoadInto, const std::string& Filename);
 
-		if (collisionOfBallWithline(pos + Vector2(0, size.y).rotate(rotation_a), pos + Vector2(0, size.y).rotate(rotation_a) + Vector2(size.x, 0).rotate(rotation_a), *ball)) {
-			c = Vector2(size.x, 0).rotate(rotation_a + 270).norm();
-			(*ball).velocity = -(*ball).velocity;
-			if ((*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm() == c) {
-				(*ball).velocity = (*ball).velocity.rotate(2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-				//std::cout << (*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm().x << " " << (*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm().y << "\n";
-			}
-			else {
-				(*ball).velocity = (*ball).velocity.rotate(-2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			std::cout << (acos((*ball).velocity.norm() * c) * 180 / M_PI) << "\n";
-			(*ball).position = prev_pos;
-			count++;;
-		}
+    //////
+    /// Test for collision using circle collision dection
+    /// Radius is averaged from the dimensions of the sprite so
+    /// roughly circular objects will be much more accurate
+    //////
+    bool CircleTest(const sf::Sprite& Object1, const sf::Sprite& Object2);
 
-		if (collisionOfBallWithline(pos + Vector2(size.x, 0).rotate(rotation_a), pos + Vector2(size.x, 0).rotate(rotation_a) + Vector2(0, size.y).rotate(rotation_a), *ball)) {
-			c = Vector2(0, size.y).rotate(rotation_a + 90).norm();
-			(*ball).velocity = -(*ball).velocity;
-			if ((*ball).velocity.rotate((acos((*ball).velocity.norm() * c) * 180 / M_PI)).norm() == c) {
-				(*ball).velocity = (*ball).velocity.rotate(2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			else {
-				(*ball).velocity = (*ball).velocity.rotate( - 2 * (acos((*ball).velocity.norm() * c) * 180 / M_PI));
-			}
-			
-			(*ball).position = prev_pos;
-			count++;
-		}
+    //////
+    /// Test for bounding box collision using the Separating Axis Theorem
+    /// Supports scaling and rotation
+    //////
+    bool BoundingBoxTest(const sf::Sprite& Object1, const sf::Sprite& Object2);
+}
 
-		if (count == 0) {
-			return 0;
-		}
-		else {
-			return 1;
-		}
-	}
-
-	static bool collisionOfBallWithline(Vector2 pos_begin, Vector2 pos_end, Ball ball) {
-		float c, d, e, t1, t2;
-		Vector2 a = (pos_end-pos_begin).norm();
-		e = (pos_begin.x - ball.position.x) * (pos_begin.x - ball.position.x) + (pos_begin.y - ball.position.y) * (pos_begin.y - ball.position.y) - ball.radius * ball.radius;
-		d = ((pos_begin.x - ball.position.x) * a.x + a.y * (pos_begin.y - ball.position.y));
-		c = (a.x * a.x + a.y * a.y);
-		if (d * d - c * e >= 0) {
-			t1 = (-d - sqrt(d * d - c * e)) / c;
-			t2 = (-d + sqrt(d * d - c * e)) / c;
-			if ((((pos_end - pos_begin).len() >= t1) && (t1 >= 0)) || (((pos_end - pos_begin).len() >= t2) && (t2 >= 0))) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		}
-		else {
-			return 0;
-		}
-	}
-};
-
+#endif	/* COLLISION_H */

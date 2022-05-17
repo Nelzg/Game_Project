@@ -38,7 +38,16 @@
     <ClInclude Include="Wall.h">
       <Filter>src\mapElements</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
+    <ClInclude Include="Collisions.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Lever.h">
+      <Filter>src\mapElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>src\mapElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

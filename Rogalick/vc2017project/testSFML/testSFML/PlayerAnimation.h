@@ -8,14 +8,12 @@
 class PlayerAnimation: public Mob
 {
 public:
-	
 	PlayerAnimation() {
-		body.setOrigin(width/2,height/2);
 		body.setSize(sf::Vector2f(width,height));
 	}
 
 	void animation(sf::Clock clock) {
-		int t = 2;
+		int t = 1;
 		sf::Time time = clock.getElapsedTime();
 		int frame_numb = (time.asMilliseconds() / 200) % N;
 		switch (frame_numb) 
@@ -43,32 +41,51 @@ public:
 		default:
 			texture.loadFromFile("D:/Game_Project/Rogalick/bin/hero_animation/hero_1.png");
 		}
-		body.setTexture(&texture);
+		//body.setTexture(&texture);
 
 		int prevX = body.getPosition().x;
 		int prevY = body.getPosition().y;
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			body.move(-1 * t, 0);
+			position.x = position.x - walking_velocity.x * t;
+			mobSetPosition(position);
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			body.move(1 * t, 0);
+			position.x = position.x + walking_velocity.x * t;
+			mobSetPosition(position);
+			
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)&&(!in_air))
 		{
-			body.move(0, -1 * t);
+			velocity = Vector2(0, -10);
+			acceleration = Vector2(0, 0.2);
+			in_air = 1;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			body.move(0, 1 * t);
+			position.y = position.y + 1 * t;
+			mobSetPosition(position);
 		}
-		if ((body.getPosition().x > 900) || (body.getPosition().x < 0) || (body.getPosition().y > 500) || (body.getPosition().y < 0)) {
-			body.setPosition(prevX, prevY);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			position.y = position.y - 1 * t;
+			mobSetPosition(position);
 		}
-		position.x = body.getPosition().x;
-		position.y = body.getPosition().y;
+		if (in_air == 1) {
+			acceleration = Vector2(0, 0.2);
+			position.y = position.y + velocity.y * t;
+			mobSetPosition(position);
+			velocity.y = velocity.y + acceleration.y * t;
+		}
+		else {
+			velocity.y = 0;
+			acceleration.y = 0;
+		}
+		if (velocity.y >= 10) {
+			velocity.y = 10;
+		}
 	}
 };
 

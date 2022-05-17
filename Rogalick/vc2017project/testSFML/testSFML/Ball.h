@@ -6,7 +6,6 @@ class Ball : public MaterialPoint
 {
 public:
 	float radius;
-	int type;
 	sf::CircleShape circle;
 	sf::Texture texture;
 
