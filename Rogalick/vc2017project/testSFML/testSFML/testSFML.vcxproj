@@ -19,13 +19,11 @@
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="LaserBeam.h" />
     <ClInclude Include="Lever.h" />
-    <ClInclude Include="Map.h" />
     <ClInclude Include="MaterialPoint.h" />
     <ClInclude Include="Mob.h" />
     <ClInclude Include="PlayerAnimation.h" />
     <ClInclude Include="Portal.h" />
     <ClInclude Include="Wall.h" />
-    <ClInclude Include="Weapons.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2AB5A5F-ADE2-4B9F-BF94-BE40E2AB7EE9}</ProjectGuid>

@@ -8,7 +8,9 @@
 class PlayerAnimation: public Mob
 {
 public:
-	PlayerAnimation() {
+	PlayerAnimation(float width_, float height_) {
+		width = width_;
+		height = height_;
 		body.setSize(sf::Vector2f(width,height));
 	}
 
@@ -41,7 +43,7 @@ public:
 		default:
 			texture.loadFromFile("hero_animation/hero_1.png");
 		}
-		//body.setTexture(&texture);
+		body.setTexture(&texture);
 
 		int prevX = body.getPosition().x;
 		int prevY = body.getPosition().y;

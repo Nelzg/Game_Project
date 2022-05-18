@@ -1,70 +1,163 @@
 ﻿  main.cpp
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\Vector2.h(88,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\Vector2.h(96,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Ball.h(13,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(48,13): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+D:\Game_Project\Rogalick\src\Vector2.h(94,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\Vector2.h(95,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\Vector2.h(103,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\Vector2.h(104,7): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Ball.h(15,12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(24,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(25,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(25,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(26,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(27,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(49,13): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(27,34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(53,17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(57,16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(61,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(65,19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(68,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(68,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Wall.h(16,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(35,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(36,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(36,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(37,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(41,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(46,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(47,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(47,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Wall.h(48,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(48,13): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Wall.h(16,34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(49,13): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Collision.h(12,22): warning C4101: 't2': unreferenced local variable
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Collision.h(12,15): warning C4101: 'e': unreferenced local variable
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Collision.h(12,18): warning C4101: 't1': unreferenced local variable
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Collision.h(12,9): warning C4101: 'c': unreferenced local variable
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Collision.h(12,12): warning C4101: 'd': unreferenced local variable
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(55,102): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(65,1): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\PlayerAnimation.h(79,1): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Portal.h(19,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Portal.h(43,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Portal.h(43,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Lever.h(19,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Lever.h(28,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\vc2017project\testSFML\testSFML\Lever.h(28,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(49,39): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Game_Project\Rogalick\src\main.cpp(106,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(106,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(107,104): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(55,68): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(107,70): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(65,101): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(119,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(119,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(125,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(125,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(131,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(131,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(137,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(137,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(143,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(143,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(152,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(152,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(162,104): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(65,67): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(162,70): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(77,101): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(177,103): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(77,67): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(177,69): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
               T=int
           ]
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(82,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(85,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\src\main.cpp(23,7): warning C4101: 'count1': unreferenced local variable
-D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\vc2017project\testSFML\testSFML\Collision.h(47): warning C4715: 'Collision::collisionWithline': not all control paths return a value
-  testSFML.vcxproj -> D:\PROJECTS_INFA\HomeWork_3_sem\Rogalick\bin\testSFMLDebug.exe
+D:\Game_Project\Rogalick\src\main.cpp(189,103): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(189,69): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Game_Project\Rogalick\src\main.cpp(194,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(197,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(295,49): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Game_Project\Rogalick\src\main.cpp(30,7): warning C4101: 'count1': unreferenced local variable
+  testSFML.vcxproj -> D:\Game_Project\Rogalick\bin\testSFMLDebug.exe

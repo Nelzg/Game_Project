@@ -7,8 +7,9 @@ class Wall: public MaterialPoint
 public:
 	sf::RectangleShape rectangle;
 	sf::Texture texture;
+	int smth_on_it;
 	int width;
-	int has_smb_on_it;
+	int mode;
 	int height;
 	Vector2 top_border, bot_border, left_border, right_border;
 	Vector2 top_right_point, bot_right_point, bot_left_point;
@@ -16,7 +17,8 @@ public:
 	Wall(int width_ = 10, int height_ = 10) {
 		width = width_;
 		height = height_;
-		has_smb_on_it = 0;
+		mode = 0;
+		smth_on_it = 0;
 		top_border = Vector2(1, 0);
 		bot_border = Vector2(-1, 0);
 		left_border = Vector2(0, -1);
@@ -25,7 +27,7 @@ public:
 		bot_right_point = top_border * width + position + right_border * height;
 		bot_left_point = position + right_border * height;
 		rectangle.setSize(sf::Vector2f(width, height));
-		//texture.loadFromFile("D:/Game_Project/Rogalick/bin/map_elements/wall.png");
+		texture.loadFromFile("D:/Game_Project/Rogalick/bin/map_elements/wall_2.png");
 	}
 
 	void setWallPosition(Vector2 new_position) {

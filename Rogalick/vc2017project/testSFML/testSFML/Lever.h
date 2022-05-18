@@ -7,24 +7,28 @@
 
 class Lever : public MaterialPoint {
 public:
-    sf::RectangleShape rectangle;
+    sf::CircleShape circle;
     Vector2 position;
+    int radius;
     int mode;
-    //Object* link;
+    Wall* link;
     static sf::Texture lever;
 
-    static void loadTexture() {
-        if (!lever.loadFromFile("Spring.png")) {
-            std::cout << "Can't load texture\n";
-        }
-        std::cout << "All done" << std::endl;
+    Lever(int radius_ = 30) {
+        radius = radius_;
+        circle.setRadius(radius);
     }
 
-    int ChangeMode(Ball* a, sf::Texture* Modes) {
-        if (a->position.x >= position.x - 2 * a->radius && a->position.x <= position.x + 60 && a->position.y >= position.y - 30 && a->position.y <= position.y) {
+    void setLeverPosition(Vector2 new_position) {
+        position = new_position;
+        circle.setPosition(position.x, position.y);
+    }
+
+    int ChangeMode(Ball& ball, sf::Texture* Modes) {
+        if ((position + Vector2(radius, radius) - ball.position).len() <= radius + ball.radius) {
             mode = 1 - mode % 2;
-            //link->mode = mode;
-            rectangle.setTexture(&Modes[mode]);
+            link->mode = mode;
+            circle.setTexture(&Modes[mode]);
             return 1;
         }
         return 0;
