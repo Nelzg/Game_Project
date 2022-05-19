@@ -7,7 +7,6 @@ class Wall: public MaterialPoint
 public:
 	sf::RectangleShape rectangle;
 	sf::Texture texture;
-	int smth_on_it;
 	int width;
 	int mode;
 	int height;
@@ -18,7 +17,6 @@ public:
 		width = width_;
 		height = height_;
 		mode = 0;
-		smth_on_it = 0;
 		top_border = Vector2(1, 0);
 		bot_border = Vector2(-1, 0);
 		left_border = Vector2(0, -1);

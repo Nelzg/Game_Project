@@ -148,7 +148,7 @@ int main()
           wall.width = 300;
           wall.height = 100;
           wall.rectangle.setSize(sf::Vector2f(wall.width, wall.height));
-          wall.setWallPosition(Vector2(100, 400));
+          wall.setWallPosition(Vector2(100, 390));
           walls_without_collisions.push_back(wall);
 
           wall.width = 200;
@@ -183,9 +183,9 @@ int main()
           walls.push_back(wall);
 
           wall.width = 200;
-          wall.height = 50;
+          wall.height = 70;
           wall.rectangle.setSize(sf::Vector2f(wall.width, wall.height));
-          wall.setWallPosition(Vector2(200, 700));
+          wall.setWallPosition(Vector2(200, 600));
           walls.push_back(wall);
 
       }

@@ -61,7 +61,7 @@ public:
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)&&(!in_air))
 		{
-			velocity = Vector2(0, -10);
+			velocity = Vector2(0, -3);
 			acceleration = Vector2(0, 0.2);
 			in_air = 1;
 		}
@@ -76,7 +76,7 @@ public:
 			mobSetPosition(position);
 		}
 		if (in_air == 1) {
-			acceleration = Vector2(0, 0.2);
+			acceleration = Vector2(0, 0.02);
 			position.y = position.y + velocity.y * t;
 			mobSetPosition(position);
 			velocity.y = velocity.y + acceleration.y * t;
@@ -85,8 +85,8 @@ public:
 			velocity.y = 0;
 			acceleration.y = 0;
 		}
-		if (velocity.y >= 10) {
-			velocity.y = 10;
+		if (velocity.y >= 5) {
+			velocity.y = 3;
 		}
 	}
 };
